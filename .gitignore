@@ -1,0 +1,27 @@
+# Ignore common files and directories
+.DS_Store
+Thumbs.db
+*.log
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore temporary files
+tmp/
+temp/
+*.tmp
+
+# Ignore backup files
+*.bak
+*.backup
+
+# Ignore OS-specific files
+.DS_Store
+desktop.ini
+
+# Ignore database config if it contains sensitive data
+# config.php (uncomment this if you want to ignore the config file)

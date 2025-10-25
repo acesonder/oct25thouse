@@ -14,7 +14,7 @@ class Auth {
     public static function generateUserID($firstName, $lastName, $dob) {
         $first3 = strtoupper(substr($firstName, 0, 3));
         $last3 = strtoupper(substr($lastName, 0, 3));
-        $dobFormatted = date('mdY', strtotime($dob));
+        $dobFormatted = date('mdy', strtotime($dob));
         
         $baseUserID = $first3 . $last3 . $dobFormatted;
         

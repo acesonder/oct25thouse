@@ -15,7 +15,7 @@ function generateUserID($firstName, $lastName, $dob) {
     
     // Extract MMDDYY from DOB
     $date = new DateTime($dob);
-    $mmddyy = $date->format('mdY');
+    $mmddyy = $date->format('mdy');
     
     // Combine to create userID
     $userID = $first3 . $last3 . $mmddyy;

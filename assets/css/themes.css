@@ -1,0 +1,254 @@
+/**
+ * Theme Customization Styles
+ * Light/Dark mode and custom themes
+ */
+
+/* Theme Variables */
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --shadow-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth theme transitions */
+body,
+.navbar,
+.card,
+.modal-content,
+.form-control,
+.btn,
+.messenger-panel,
+.notifications-panel {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .landing-page {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+[data-theme="dark"] .portal-card {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .portal-card h2 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .portal-card p {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+/* Custom Color Gradients */
+.gradient-1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-2 {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-3 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-4 {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.gradient-5 {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+/* Shadow Variations */
+.shadow-sm {
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.shadow-md {
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 50px var(--shadow-color);
+}
+
+/* Animation Utilities */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.5s ease-out;
+}
+
+.slide-in-down {
+    animation: slideInDown 0.5s ease-out;
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s ease-out;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Layout Styles */
+.layout-default {
+    /* Default layout */
+}
+
+.layout-compact {
+    max-width: 900px;
+}
+
+.layout-wide {
+    max-width: 1400px;
+}
+
+.layout-full {
+    max-width: 100%;
+    padding: 0;
+}
+
+/* Font Families */
+.font-arial {
+    font-family: Arial, sans-serif;
+}
+
+.font-helvetica {
+    font-family: Helvetica, sans-serif;
+}
+
+.font-verdana {
+    font-family: Verdana, sans-serif;
+}
+
+.font-georgia {
+    font-family: Georgia, serif;
+}
+
+.font-times {
+    font-family: 'Times New Roman', serif;
+}
+
+.font-courier {
+    font-family: 'Courier New', monospace;
+}
+
+/* Border Radius Variations */
+.rounded-sm {
+    border-radius: 4px;
+}
+
+.rounded-md {
+    border-radius: 8px;
+}
+
+.rounded-lg {
+    border-radius: 12px;
+}
+
+.rounded-xl {
+    border-radius: 20px;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}

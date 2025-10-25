@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Management System - Setup Instructions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        
+        .alert {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #5568d3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏥 Healthcare Management System</h1>
+        <p style="color: #666; margin-bottom: 30px;">HIPAA-Compliant Healthcare Portal - Setup Instructions</p>
+        
+        <div class="alert alert-info">
+            <strong>📋 Quick Info:</strong> This system provides a complete healthcare management solution with patient portals, 
+            staff management, instant messaging, and comprehensive admin controls.
+        </div>
+        
+        <h2>🚀 Installation Steps</h2>
+        
+        <div class="step">
+            <h3>Step 1: Database Setup</h3>
+            <p>Import the database schema to create all necessary tables.</p>
+            <ol>
+                <li>Open <strong>phpMyAdmin</strong> in your browser</li>
+                <li>Click on "Import" in the top navigation</li>
+                <li>Choose file: <code>database/schema.sql</code></li>
+                <li>Click "Go" to import</li>
+            </ol>
+            <div class="alert alert-success">
+                ✓ This creates the <code>healthcare_system</code> database with all tables and a default admin account.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>Step 2: Configure Database Connection</h3>
+            <p>Update database credentials in the configuration file.</p>
+            <ol>
+                <li>Open <code>config/config.php</code></li>
+                <li>Update the following constants:</li>
+            </ol>
+            <pre><code>define('DB_HOST', 'localhost');
+define('DB_NAME', 'healthcare_system');
+define('DB_USER', 'your_username');
+define('DB_PASS', 'your_password');</code></pre>
+        </div>
+        
+        <div class="step">
+            <h3>Step 3: Set Directory Permissions</h3>
+            <p>Ensure the web server can write to upload directories.</p>
+            <pre><code>chmod 755 uploads/
+chmod 755 sessions/
+chmod 755 tmp/</code></pre>
+        </div>
+        
+        <div class="step">
+            <h3>Step 4: Configure Web Server</h3>
+            <p>Point your web server to the project directory.</p>
+            <ul>
+                <li>For Apache: Set DocumentRoot to the project folder</li>
+                <li>Enable <code>mod_rewrite</code> if using Apache</li>
+                <li>Ensure PHP extensions are enabled: PDO, PDO_MySQL, session</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h3>Step 5: Access the Application</h3>
+            <p>Open your browser and navigate to:</p>
+            <pre><code>http://localhost/</code></pre>
+            <p>or your configured server URL.</p>
+        </div>
+        
+        <h2>🔐 Default Login Credentials</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Account Type</th>
+                    <th>User ID</th>
+                    <th>Password</th>
+                    <th>Access</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>System Admin</strong></td>
+                    <td>SYSADM000000</td>
+                    <td>Admin@123</td>
+                    <td>Full system access</td>
+                </tr>
+                <tr>
+                    <td><strong>Admin Portal</strong></td>
+                    <td>N/A</td>
+                    <td>Passcode: 079777</td>
+                    <td>/admin/admin.php</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="alert alert-warning">
+            <strong>⚠️ Security Note:</strong> Please change the default admin password immediately after first login!
+        </div>
+        
+        <h2>✨ Key Features</h2>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>👥 User Management</h4>
+                <p>Multiple user types: Client, Staff, Service Provider, Volunteer, Admin</p>
+            </div>
+            
+            <div class="feature-card">
+                <h4>🔒 HIPAA Compliant</h4>
+                <p>Encrypted data, audit logging, secure sessions</p>
+            </div>
+            
+            <div class="feature-card">
+                <h4>💬 Instant Messenger</h4>
+                <p>Real-time messaging with media and location sharing</p>
+            </div>
+            
+            <div class="feature-card">
+                <h4>🎨 Customizable</h4>
+                <p>Light/dark themes, custom colors, fonts, layouts</p>
+            </div>
+            
+            <div class="feature-card">
+                <h4>🔔 Notifications</h4>
+                <p>Real-time alerts with sound and browser notifications</p>
+            </div>
+            
+            <div class="feature-card">
+                <h4>🛡️ Admin Panel</h4>
+                <p>Complete user management and system control</p>
+            </div>
+        </div>
+        
+        <h2>📱 User Portals</h2>
+        
+        <h3>Client Portal</h3>
+        <ul>
+            <li>Self-registration with auto-generated User ID</li>
+            <li>Instant account activation</li>
+            <li>Access to messaging and notifications</li>
+            <li>Profile management and settings</li>
+        </ul>
+        
+        <h3>Staff Portal</h3>
+        <ul>
+            <li>Requires admin approval</li>
+            <li>Client management capabilities</li>
+            <li>Communication tools</li>
+            <li>Approval workflow for service providers</li>
+        </ul>
+        
+        <h3>Service Provider Portal</h3>
+        <ul>
+            <li>Requires admin approval</li>
+            <li>Service offering management</li>
+            <li>Client communication</li>
+            <li>Specialized dashboard</li>
+        </ul>
+        
+        <h3>Admin Portal</h3>
+        <ul>
+            <li>Access via /admin/admin.php (passcode: 079777)</li>
+            <li>Create and manage all account types</li>
+            <li>Approve/suspend/activate users</li>
+            <li>Login as any user for testing</li>
+            <li>View system statistics and audit logs</li>
+        </ul>
+        
+        <h2>🔧 System Requirements</h2>
+        
+        <ul>
+            <li><strong>PHP:</strong> 7.4 or higher</li>
+            <li><strong>MySQL:</strong> 5.7 or higher</li>
+            <li><strong>Web Server:</strong> Apache or Nginx</li>
+            <li><strong>Browser:</strong> Modern browser (Chrome, Firefox, Safari, Edge)</li>
+            <li><strong>PHP Extensions:</strong> PDO, PDO_MySQL, session, json</li>
+        </ul>
+        
+        <h2>📋 File Structure</h2>
+        
+        <pre><code>oct25thouse/
+├── admin/              # Admin portal
+├── api/                # Backend APIs
+│   ├── messenger/      # Messaging endpoints
+│   └── notifications/  # Notification endpoints
+├── assets/             # Static files
+│   ├── css/            # Stylesheets
+│   ├── js/             # JavaScript
+│   └── sounds/         # Notification sounds
+├── client/             # Client portal
+├── config/             # Configuration
+├── database/           # Database schema
+├── includes/           # Reusable components
+├── service_provider/   # Provider portal
+├── staff/              # Staff portal
+├── uploads/            # User uploads
+└── index.php           # Landing page</code></pre>
+        
+        <h2>🛡️ Security Best Practices</h2>
+        
+        <div class="alert alert-warning">
+            <strong>For Production Deployment:</strong>
+            <ul style="margin-top: 10px;">
+                <li>Enable HTTPS and update <code>session.cookie_secure</code> to 1</li>
+                <li>Set <code>display_errors</code> to 0 in config.php</li>
+                <li>Use strong database passwords</li>
+                <li>Regularly backup the database</li>
+                <li>Review audit logs periodically</li>
+                <li>Keep PHP and MySQL updated</li>
+            </ul>
+        </div>
+        
+        <h2>💡 Getting Started</h2>
+        
+        <ol>
+            <li>Complete the installation steps above</li>
+            <li>Access the landing page in your browser</li>
+            <li>Register a test client account to explore features</li>
+            <li>Login to admin portal to manage users</li>
+            <li>Test the messenger and notification features</li>
+            <li>Customize theme and settings</li>
+        </ol>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.php" class="btn">🚀 Go to Landing Page</a>
+        </div>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #dee2e6; text-align: center; color: #666;">
+            <p><strong>Healthcare Management System</strong></p>
+            <p>HIPAA Compliant • Canadian Standards • Secure & Encrypted</p>
+        </div>
+    </div>
+</body>
+</html>
